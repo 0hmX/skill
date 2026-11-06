@@ -28,9 +28,26 @@ Never write a skill directly into `~/.claude/skills/`; it should only contain sy
 
 ## Skills from other repos
 
-Git can't link a single file from another GitHub repo, so external skills are copied in, pinned to an upstream commit, and listed below. Don't edit them locally; to update, re-copy from upstream and bump the commit.
+Git can't link a single file from another GitHub repo, so external skills are copied in and marked with an `owner.md`. Don't edit them locally.
 
-| Skill | Upstream | Commit |
-|---|---|---|
-| `architect` | https://github.com/cursor/plugins/tree/main/pstack/skills/architect | `00b14f1df36b` |
-| `skill-creator` | Anthropic built-in `skill-creator` (modified here to follow this file) | — |
+To add one:
+
+1. Find the skill's `SKILL.md` on GitHub and note the latest commit that touched its folder.
+2. Copy the whole skill folder (`SKILL.md` plus any `references/`, `scripts/`, `assets/`) at that commit into `<skill-name>/` here.
+3. Add `<skill-name>/owner.md` with the exact GitHub link to the upstream `SKILL.md` and the pinned commit:
+
+   ```markdown
+   # Owner
+
+   External skill, copied from:
+
+   https://github.com/<org>/<repo>/blob/main/<path>/SKILL.md
+
+   Pinned upstream commit: `<full sha>`
+   ```
+
+4. Symlink it into `~/.claude/skills/` as usual and commit as `<skill-name>: add from <org>/<repo>`.
+
+To update one, re-copy the folder from upstream, bump the commit in `owner.md`, and commit as `<skill-name>: update to <short sha>`.
+
+A skill folder without `owner.md` is ours and can be edited freely.
