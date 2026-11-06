@@ -34,9 +34,9 @@ Cool? Cool.
 Every skill this user makes or edits lives in the GitHub repo **0hmX/skill**, cloned at `~/0hmx/skill`. Read and follow `~/0hmx/skill/AGENTS.md` before writing anything. Never write a skill straight into `~/.claude/skills/`, a project's `.claude/skills/`, or `/tmp` as its final home.
 
 1. **Clone if missing**: if `~/0hmx/skill` doesn't exist, run `gh repo clone 0hmX/skill ~/0hmx/skill`. Otherwise `git -C ~/0hmx/skill pull --ff-only` first.
-2. **Create the skill at** `~/0hmx/skill/<skill-name>/SKILL.md` (plus its `scripts/`, `references/`, `assets/`). One top-level folder per skill; folder name = `name` frontmatter.
-3. **Link it locally**: `ln -sfn ~/0hmx/skill/<skill-name> ~/.claude/skills/<skill-name>`, so edits in the repo are live immediately.
-4. **Improving an existing skill**: edit it in `~/0hmx/skill/<skill-name>/` (the `~/.claude/skills` symlink points there). If the skill only exists somewhere else (synced/plugin/project), copy it into the repo first, then link it.
+2. **Create the skill at** `~/0hmx/skill/skills/<skill-name>/SKILL.md` (plus its `scripts/`, `references/`, `assets/`). One folder per skill under `skills/`; folder name = `name` frontmatter.
+3. **Link it locally**: `ln -sfn ~/0hmx/skill/skills/<skill-name> ~/.claude/skills/<skill-name>`, so edits in the repo are live immediately.
+4. **Improving an existing skill**: edit it in `~/0hmx/skill/skills/<skill-name>/` (the `~/.claude/skills` symlink points there). If the skill only exists somewhere else (synced/plugin/project), copy it into the repo first, then link it.
 5. **Keep test artifacts out of the repo**: put `<skill-name>-workspace/` in the session scratchpad (or `/tmp`), not inside `~/0hmx/skill`.
 6. **Commit and push** when the user is happy with a version (ask before pushing): `git -C ~/0hmx/skill add <skill-name> && git commit -m "<skill-name>: <change>" && git push`.
 
@@ -72,7 +72,7 @@ Check available MCPs - if useful for research (searching docs, finding similar s
 
 ### Write the SKILL.md
 
-Write it at `~/0hmx/skill/<skill-name>/SKILL.md` and symlink it into `~/.claude/skills/` (see "Where skills live"). Based on the user interview, fill in these components:
+Write it at `~/0hmx/skill/skills/<skill-name>/SKILL.md` and symlink it into `~/.claude/skills/` (see "Where skills live"). Based on the user interview, fill in these components:
 
 - **name**: Skill identifier
 - **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
