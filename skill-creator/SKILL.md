@@ -31,7 +31,7 @@ Cool? Cool.
 
 ## Where skills live (0hmX rule — always follow)
 
-Every skill this user makes or edits lives in the GitHub repo **0hmX/skill**, cloned at `~/0hmx/skill`. Never write a skill straight into `~/.claude/skills/`, a project's `.claude/skills/`, or `/tmp` as its final home.
+Every skill this user makes or edits lives in the GitHub repo **0hmX/skill**, cloned at `~/0hmx/skill`. Read and follow `~/0hmx/skill/AGENTS.md` before writing anything. Never write a skill straight into `~/.claude/skills/`, a project's `.claude/skills/`, or `/tmp` as its final home.
 
 1. **Clone if missing**: if `~/0hmx/skill` doesn't exist, run `gh repo clone 0hmX/skill ~/0hmx/skill`. Otherwise `git -C ~/0hmx/skill pull --ff-only` first.
 2. **Create the skill at** `~/0hmx/skill/<skill-name>/SKILL.md` (plus its `scripts/`, `references/`, `assets/`). One top-level folder per skill; folder name = `name` frontmatter.
