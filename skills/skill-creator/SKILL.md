@@ -34,7 +34,7 @@ Cool? Cool.
 Every skill this user makes or edits lives in the GitHub repo **0hmX/skill**, cloned at `~/0hmx/skill`. Read and follow `~/0hmx/skill/AGENTS.md` before writing anything. Never write a skill straight into `~/.claude/skills/`, a project's `.claude/skills/`, or `/tmp` as its final home.
 
 1. **Clone if missing**: if `~/0hmx/skill` doesn't exist, run `gh repo clone 0hmX/skill ~/0hmx/skill`. Otherwise `git -C ~/0hmx/skill pull --ff-only` first.
-2. **Create the skill at** `~/0hmx/skill/skills/<skill-name>/SKILL.md` (plus its `scripts/`, `references/`, `assets/`). One folder per skill under `skills/`; folder name = `name` frontmatter.
+2. **Create the skill at** `~/0hmx/skill/skills/<skill-name>/SKILL.md` (plus its `scripts/`, `references/`, `assets/`). One folder per skill under `skills/`; folder name = `name` frontmatter. Always add `owner.md` containing `# Owner` and `@0hmX` (see AGENTS.md).
 3. **Link it locally**: `ln -sfn ~/0hmx/skill/skills/<skill-name> ~/.claude/skills/<skill-name>`, so edits in the repo are live immediately.
 4. **Improving an existing skill**: edit it in `~/0hmx/skill/skills/<skill-name>/` (the `~/.claude/skills` symlink points there). If the skill only exists somewhere else (synced/plugin/project), copy it into the repo first, then link it.
 5. **Keep test artifacts out of the repo**: put `<skill-name>-workspace/` in the session scratchpad (or `/tmp`), not inside `~/0hmx/skill`.
