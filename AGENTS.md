@@ -59,7 +59,7 @@ Git can't link a single file from another GitHub repo, so external skills are co
 To add one:
 
 1. Find the skill's `SKILL.md` on GitHub and note the latest commit that touched its folder.
-2. Copy the whole skill folder (`SKILL.md` plus any `references/`, `scripts/`, `assets/`) at that commit into `skills/<skill-name>/` here.
+2. Copy the whole skill folder (`SKILL.md` plus any `references/`, `scripts/`, `assets/`) at that commit into `skills/<skill-name>/` here. Also copy the upstream license file into the folder (this repo is public, so the license notice must travel with the copy). No license upstream means don't copy it.
 3. Add `skills/<skill-name>/owner.md` using the external template above.
 4. Symlink it into `~/.claude/skills/` as usual and commit as `<skill-name>: add from <org>/<repo>`.
 
