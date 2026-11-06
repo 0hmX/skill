@@ -6,3 +6,5 @@ All of 0hmX's Claude skills. One folder per skill under `skills/` (`skills/<name
 gh repo clone 0hmX/skill ~/0hmx/skill
 ln -sfn ~/0hmx/skill/skills/<name> ~/.claude/skills/<name>
 ```
+
+License: MIT for the repo, but each skill folder has its own `LICENSE` that takes precedence (see `AGENTS.md`).

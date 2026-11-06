@@ -6,7 +6,7 @@ Basic rules for anyone (human or agent) adding or changing skills in this repo.
 
 - Every skill lives in its own subfolder under the top-level `skills/` folder: `skills/<skill-name>/SKILL.md`, plus optional `scripts/`, `references/`, `assets/`.
 - Folder name = the `name` in the SKILL.md frontmatter.
-- Every skill folder must have an `owner.md` (see Ownership below). No `owner.md`, no merge.
+- Every skill folder must have an `owner.md` (see Ownership below) and a `LICENSE` (see Licensing below). Missing either, no merge.
 - Never put a skill folder at the repo top level; it always goes in `skills/`.
 - Don't commit test output (`*-workspace/`), caches, or secrets.
 
@@ -51,6 +51,15 @@ https://github.com/<org>/<repo>/blob/main/<path>/SKILL.md
 
 Pinned upstream commit: `<full sha>`
 ```
+
+## Licensing
+
+- The repo as a whole is MIT (top-level `LICENSE`), except for skill folders that have their own `LICENSE`, which win.
+- Every skill folder has its own `LICENSE`:
+  - **Ours (`@0hmX`)**: MIT. Copy the top-level `LICENSE` without its "Exception" paragraph.
+  - **External**: the upstream license file, copied unchanged. Never relicense someone else's skill as MIT.
+  - **Ours but based on an external skill**: keep the upstream license (e.g. Apache-2.0 stays Apache-2.0). If that license requires it (Apache-2.0 does), add a line at the top of each changed file saying it was modified by @0hmX.
+- No license upstream = all rights reserved: don't copy that skill into this repo.
 
 ## Skills from other repos
 
